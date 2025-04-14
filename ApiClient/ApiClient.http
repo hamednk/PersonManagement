@@ -1,0 +1,32 @@
+@ApiClient_HostAddress = https://localhost:7293
+
+GET {{ApiClient_HostAddress}}/api/person
+
+###
+
+POST {{ApiClient_HostAddress}}/api/person
+Content-Type: application/json
+
+{
+  //CreatePersonRequest
+}
+
+###
+
+PUT {{ApiClient_HostAddress}}/api/person
+Content-Type: application/json
+
+{
+  //UpdatePersonRequest
+}
+
+###
+
+@id=string
+DELETE {{ApiClient_HostAddress}}/api/person/{{id}}
+
+###
+
+GET {{ApiClient_HostAddress}}/api/person/{{id}}
+
+###

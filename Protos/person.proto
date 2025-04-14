@@ -1,0 +1,67 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Protos";
+
+package person;
+
+service PersonServiceProto
+{
+    rpc CreatePerson (CreatePersonRequest) returns (PersonResponse);
+    rpc GetPerson (GetPersonRequest) returns (PersonResponse);
+    rpc GetAllPersons (GetAllPersonsRequest) returns (PersonListResponse);
+    rpc UpdatePerson (UpdatePersonRequest) returns (PersonResponse);
+    rpc DeletePerson (DeletePersonRequest) returns (DeletePersonResponse);
+}
+
+message CreatePersonRequest
+{
+  string firstName = 1;
+  string lastName = 2;
+  string nationalCode = 3;
+  string birthDate = 4;
+}
+
+message GetPersonRequest
+{
+  string id = 1;
+}
+
+message GetAllPersonsRequest
+{
+    int32 pageIndex = 1;
+    int32 pageSize = 2;
+}
+
+message UpdatePersonRequest
+{
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string nationalCode = 4;
+  string birthDate = 5;
+}
+
+message DeletePersonRequest
+{
+  string id = 1;
+}
+
+message PersonResponse
+{
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string nationalCode = 4;
+  string birthDate = 5;
+}
+
+message PersonListResponse
+{
+    repeated PersonResponse persons = 1;
+    int32 totalCount = 2;
+}
+
+message DeletePersonResponse
+{
+  bool success = 1;
+}
